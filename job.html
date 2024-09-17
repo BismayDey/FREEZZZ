@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FREEZZZ Job Listings</title>
-    <link rel="stylesheet" href="job.css">
-</head>
-<body>
+    <link rel="stylesheet" href="job.css" />
+  </head>
+  <body>
     <header>
-        <h1 id="site-name">FREEZZZ</h1>
-        <p>Find Your Dream Job</p>
-        <p>Explore top job opportunities and apply now!</p>
+      <h1 id="site-name">FREEZZZ</h1>
+      <p>Find Your Dream Job</p>
+      <p>Explore top job opportunities and apply now!</p>
     </header>
     <div id="filter-bar">
-        <input type="text" id="search-input" placeholder="Search jobs...">
-        <select id="location-filter">
-            <option value="">Select Location</option>
-            <option value="Remote">Remote</option>
-            <option value="New York, NY">New York, NY</option>
-            <option value="San Francisco, CA">San Francisco, CA</option>
-            <option value="Chicago, IL">Chicago, IL</option>
-            <option value="Austin, TX">Austin, TX</option>
-            <option value="Los Angeles, CA">Los Angeles, CA</option>
-            <option value="Seattle, WA">Seattle, WA</option>
-            <option value="Dallas, TX">Dallas, TX</option>
-        </select>
+      <input type="text" id="search-input" placeholder="Search jobs..." />
+      <select id="location-filter">
+        <option value="">Select Location</option>
+        <option value="Remote">Remote</option>
+        <option value="New York, NY">New York, NY</option>
+        <option value="San Francisco, CA">San Francisco, CA</option>
+        <option value="Chicago, IL">Chicago, IL</option>
+        <option value="Austin, TX">Austin, TX</option>
+        <option value="Los Angeles, CA">Los Angeles, CA</option>
+        <option value="Seattle, WA">Seattle, WA</option>
+        <option value="Dallas, TX">Dallas, TX</option>
+      </select>
     </div>
+    <button class="get-back-btn" onclick="window.location.href='linkedin.html'">
+      Home page
+    </button>
     <section id="positions">
-        <div class="job-container" id="job-list">
-            <!-- Job cards will be inserted here by JavaScript -->
-        </div>
+      <div class="job-container" id="job-list">
+        <!-- Job cards will be inserted here by JavaScript -->
+      </div>
     </section>
     <footer>
-        <p>&copy; 2024 FREEZZZ. All rights reserved. <a href="#">Privacy Policy</a></p>
+      <p>
+        &copy; 2024 FREEZZZ. All rights reserved. <a href="#">Privacy Policy</a>
+      </p>
     </footer>
     <script src="job.js"></script>
-</body>
+  </body>
 </html>
