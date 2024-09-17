@@ -374,19 +374,34 @@
         background: white;
         color: #1a1a1a;
       }
+      .language-selector {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background: black;
+        border: 2px solid white;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <!-- Login button -->
-    <a href="index.html" class="login-btn">Log out</a>
+    <a href="index.html" class="login-btn" data-key="log">Log out</a>
 
     <!-- Container for the welcome message and website name -->
     <div class="container">
-      <h1>FREEZZZ</h1>
-      <p class="welcome-message">
+      <h1><div data-key="title">FREEZZZ</div></h1>
+      <p class="welcome-message" data-key="welcome-message">
         Welcome to the coolest Freelancing Platform ever!
       </p>
-      <button class="start-btn" onclick="openModal()">Get Started</button>
+      <button class="start-btn" data-key="button" onclick="openModal()">
+        Get Started
+      </button>
     </div>
 
     <!-- Floating animated circles for background effect -->
@@ -396,23 +411,25 @@
 
     <!-- Features section -->
     <section class="features-section">
-      <h2>Features</h2>
+      <h2 data-key="feautures">Features</h2>
       <div class="section-content">
         <div class="feature">
-          <h3>User-Friendly Interface</h3>
-          <p>Easy-to-navigate layout for both freelancers and clients.</p>
+          <h3 data-key="f1">User-Friendly Interface</h3>
+          <p data-key="f1-content">
+            Easy-to-navigate layout for both freelancers and clients.
+          </p>
         </div>
         <div class="feature">
-          <h3>Advanced Matching Algorithms</h3>
-          <p>
+          <h3 data-key="f2">Advanced Matching Algorithms</h3>
+          <p data-key="f2-content">
             Uses AI to recommend the most suitable freelancers based on job
             requirements, skills, ratings, and prior work, helping both
             freelancers and clients save time.
           </p>
         </div>
         <div class="feature">
-          <h3>Resume builder</h3>
-          <p>
+          <h3 data-key="f3">Resume builder</h3>
+          <p data-key="f3-content">
             DON'T HAVE RESUME❗❓<br />No need to worry we have our own resume
             builder which is user friendly and very easy to use.
           </p>
@@ -422,49 +439,57 @@
 
     <!-- Testimonials section -->
     <section class="testimonials-section">
-      <h2>What Our Users Say</h2>
+      <h2 data-key="testi">What Our Users Say</h2>
       <div class="section-content">
         <div class="testimonial">
-          <p>"FREEZZZ is amazing! It helped me find my dream job."</p>
-          <h4>Bismay Dey</h4>
+          <p data-key="t1">
+            "FREEZZZ is amazing! It helped me find my dream job."
+          </p>
+          <h4 data-key="t1-name">Bismay Dey</h4>
         </div>
         <div class="testimonial">
-          <p>"The best job search platform I've ever used."</p>
-          <h4>Will white</h4>
+          <p data-key="t2">"The best job search platform I've ever used."</p>
+          <h4 data-key="t2-name">Will white</h4>
         </div>
       </div>
     </section>
 
     <!-- Updates section -->
     <section class="updates-section">
-      <h2>Latest Updates</h2>
+      <h2 data-key="upto">Latest Updates</h2>
       <div class="section-content">
         <div class="update-item">
-          <h3>New Feature Released</h3>
-          <p>We’ve added a new filter to help you find jobs faster.</p>
+          <h3 data-key="u1">New Feature Released</h3>
+          <p data-key="u1-content">
+            We’ve added a new filter to help you find jobs faster.
+          </p>
         </div>
         <div class="update-item">
-          <h3>Maintenance Notice</h3>
-          <p>Scheduled maintenance on September 10th. We’ll be back shortly.</p>
+          <h3 data-key="u2">Maintenance Notice</h3>
+          <p data-key="u2-content">
+            Scheduled maintenance on September 20th. We’ll be back shortly.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- FAQ section -->
     <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
+      <h2 data-key="faqs">Frequently Asked Questions</h2>
       <div class="section-content">
         <div class="faq">
-          <h3>How do I apply for a job or hire?</h3>
-          <p>
+          <h3 data-key="fq1">How do I apply for a job or hire?</h3>
+          <p data-key="fq1-content">
             Visit the job listing page or the hiring page, click on the job or
             resummes you're interested in, and follow the application
             instructions.
           </p>
         </div>
         <div class="faq">
-          <h3>What is the cost of using FREEZZZ?</h3>
-          <p>FREEZZZ is completely free to use for job seekers.</p>
+          <h3 data-key="fq2">What is the cost of using FREEZZZ?</h3>
+          <p data-key="fq2-content">
+            FREEZZZ is completely free to use for job seekers.
+          </p>
         </div>
       </div>
     </section>
@@ -479,8 +504,86 @@
         </button>
       </div>
     </div>
+    <!-- Language Selector Dropdown -->
+    <select
+      id="languageSelector"
+      class="language-selector"
+      onchange="translatePage()"
+    >
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="es">Spanish</option>
+      <option value="fr">French</option>
+      <option value="zh">Chinese</option>
+      <option value="ar">Arabic</option>
+    </select>
 
     <script>
+      function translatePage() {
+        const lang = document.getElementById("languageSelector").value;
+        const translations = {
+          en: {
+            log: "LOG OUT",
+            title: "FREEZZZ",
+            "welcome-message":
+              "Welcome to the coolest Freelancing Platform ever!",
+            "start-btn": "Get Started",
+            button: "GET STARTED",
+            feautures: "Features",
+            f1: "User-Friendly Interface",
+            "f1-content":
+              "Easy-to-navigate layout for both freelancers and clients.",
+            f2: "Advanced Matching Algorithms",
+            "f2-content":
+              "Uses AI to recommend the most suitable freelancers based on job requirements, skills, ratings, and prior work, helping both freelancers and clients save time",
+            f3: "Resume builder",
+            "f3-content":
+              "Build your resume easily with our user-friendly tool.",
+          },
+          hi: {
+            log: "लॉग आउट",
+            title: "फ्रीजज़",
+            "welcome-message":
+              "सबसे कूल फ्रीलांसिंग प्लेटफ़ॉर्म में आपका स्वागत है!",
+            button: "आरंभ करें",
+            "start-btn": "शुरू करें",
+            feautures: "विशेषताएँ",
+            f1: "उपयोगकर्ता-अनुकूल इंटरफ़ेस",
+            "f1-content":
+              "नौकरी की आवश्यकताओं, कौशल, रेटिंग और पूर्व कार्य के आधार पर सबसे उपयुक्त फ्रीलांसरों की सिफारिश करने के लिए एआई का उपयोग करता है, जिससे फ्रीलांसरों और ग्राहकों दोनों को समय बचाने में मदद मिलती है।",
+            f2: "उन्नत मैट एल्गोरिदम",
+            "f2-content":
+              "AI का उपयोग करके नौकरियों के आधार पर सबसे उपयुक्त फ्रीलांसरों की सिफारिश करता है।",
+            f3: "बायोडाटा बिल्डर",
+            "f3-content":
+              "हमारे उपयोगकर्ता-अनुकूल उपकरण के साथ आसानी से अपना बायोडाटा बनाएं।",
+          },
+          es: {
+            title: "FREEZZZ",
+            "welcome-message":
+              "¡Bienvenido a la plataforma de freelancing más genial!",
+            button: "Comenzar",
+            feautures: "Características",
+            f1: "Interfaz fácil de usar",
+            "f1-content":
+              "Diseño fácil de navegar para freelancers y clientes.",
+            f2: "Algoritmos de coincidencia avanzados",
+            "f2-content":
+              "Utiliza IA para recomendar los freelancers más adecuados en función de los requisitos del trabajo, las habilidades y las calificaciones.",
+            f3: "Constructor de currículum",
+            "f3-content":
+              "Cree fácilmente su currículum con nuestra herramienta fácil de usar.",
+          },
+          // Add more languages here
+        };
+
+        const elementsToTranslate = document.querySelectorAll("[data-key]");
+        elementsToTranslate.forEach((element) => {
+          const key = element.getAttribute("data-key");
+          element.innerText = translations[lang][key];
+        });
+      }
+
       // Function to open the modal
       function openModal() {
         document.getElementById("optionModal").style.display = "flex";
