@@ -481,7 +481,7 @@
           <h3 data-key="fq1">How do I apply for a job or hire?</h3>
           <p data-key="fq1-content">
             Visit the job listing page or the hiring page, click on the job or
-            resummes you're interested in, and follow the application
+            resumes you're interested in, and follow the application
             instructions.
           </p>
         </div>
@@ -497,9 +497,11 @@
     <!-- Modal -->
     <div class="modal" id="optionModal">
       <div class="modal-content">
-        <h2>Choose an Option</h2>
-        <button onclick="window.location.href='job.html'">Find Jobs</button>
-        <button onclick="window.location.href='linkedin.html'">
+        <h2 data-key="option">Choose an Option</h2>
+        <button data-key="job" onclick="window.location.href='job.html'">
+          Find Jobs
+        </button>
+        <button data-key="home" onclick="window.location.href='linkedin.html'">
           Home Page
         </button>
       </div>
@@ -513,9 +515,9 @@
       <option value="en">English</option>
       <option value="hi">हिन्दी</option>
       <option value="es">Spanish</option>
-      <option value="fr">French</option>
-      <option value="zh">Chinese</option>
-      <option value="ar">Arabic</option>
+      <option value="fe">French</option>
+      <option value="be">Bengali</option>
+      <option value="ch">Chinese</option>
     </select>
 
     <script>
@@ -538,7 +540,28 @@
               "Uses AI to recommend the most suitable freelancers based on job requirements, skills, ratings, and prior work, helping both freelancers and clients save time",
             f3: "Resume builder",
             "f3-content":
-              "Build your resume easily with our user-friendly tool.",
+              "DON'T HAVE RESUME❗❓No need to worry we have our own resume builder which is user friendly and very easy to use.",
+            testi: "What Our Users Say",
+            t1: "'FREEZZZ is amazing! It helped me find my dream job.'",
+            "t1-name": "Bismay Dey",
+            t2: "'The best job search platform I've ever used.'",
+            "t2-name": "Will White",
+            upto: "Latest Updates",
+            u1: "New Feature Released",
+            "u1-content":
+              "We’ve added a new filter to help you find jobs faster.",
+            u2: "Maintenance Notice",
+            "u2-content":
+              "Scheduled maintenance on September 20th. We’ll be back shortly.",
+            faqs: "Frequently Asked Questions",
+            fq1: "How do I apply for a job or hire?",
+            "fq1-content":
+              "Visit the job listing page or the hiring page, click on the job or resumes you're interested in, and follow the application instructions.",
+            fq2: "What is the cost of using FREEZZZ?",
+            "fq2-content": "FREEZZZ is completely free to use for job seekers.",
+            option: "Choose an Option",
+            job: "Find Jobs",
+            home: "Home Page",
           },
           hi: {
             log: "लॉग आउट",
@@ -550,19 +573,39 @@
             feautures: "विशेषताएँ",
             f1: "उपयोगकर्ता-अनुकूल इंटरफ़ेस",
             "f1-content":
-              "नौकरी की आवश्यकताओं, कौशल, रेटिंग और पूर्व कार्य के आधार पर सबसे उपयुक्त फ्रीलांसरों की सिफारिश करने के लिए एआई का उपयोग करता है, जिससे फ्रीलांसरों और ग्राहकों दोनों को समय बचाने में मदद मिलती है।",
+              "फ्रीलांसरों और ग्राहकों दोनों के लिए नेविगेट करने में आसान लेआउट।",
             f2: "उन्नत मैट एल्गोरिदम",
             "f2-content":
-              "AI का उपयोग करके नौकरियों के आधार पर सबसे उपयुक्त फ्रीलांसरों की सिफारिश करता है।",
+              "नौकरी की आवश्यकताओं, कौशल, रेटिंग और पूर्व कार्य के आधार पर सबसे उपयुक्त फ्रीलांसरों की सिफारिश करने के लिए एआई का उपयोग करता है, जिससे फ्रीलांसरों और ग्राहकों दोनों को समय बचाने में मदद मिलती है।",
             f3: "बायोडाटा बिल्डर",
             "f3-content":
-              "हमारे उपयोगकर्ता-अनुकूल उपकरण के साथ आसानी से अपना बायोडाटा बनाएं।",
+              "बायोडाटा नहीं है❗❓चिंता करने की कोई आवश्यकता नहीं है, हमारे पास अपना स्वयं का रेज़्यूमे बिल्डर है जो उपयोगकर्ता के अनुकूल है और उपयोग में बहुत आसान है।",
+            testi: "हमारे उपयोगकर्ता क्या कहते हैं",
+            t1: "फ़्रीज़्ज़ अद्भुत है! इससे मुझे अपने सपनों की नौकरी ढूंढने में मदद मिली",
+            "t1-name": "नंदन पांडे",
+            t2: "अब तक का सबसे अच्छा नौकरी खोज प्लेटफ़ॉर्म जिसका मैंने उपयोग किया है।",
+            "t2-name": "महादेव राव",
+            upto: "नयी चीज़ें",
+            u1: "",
+            "u1-content": "",
+            u2: "",
+            "u2-content": "",
+            fq: "",
+            fq1: "",
+            "fq1-content": "",
+            fq2: "",
+            "fq2-content": "",
+            option: "",
+            job: "Find Jobs",
+            home: "Home Page",
           },
           es: {
+            log: "FINALIZAR LA SESIÓN",
             title: "FREEZZZ",
             "welcome-message":
               "¡Bienvenido a la plataforma de freelancing más genial!",
-            button: "Comenzar",
+            "start-btn": "Empezar",
+            button: "EMPEZAR",
             feautures: "Características",
             f1: "Interfaz fácil de usar",
             "f1-content":
@@ -573,8 +616,144 @@
             f3: "Constructor de currículum",
             "f3-content":
               "Cree fácilmente su currículum con nuestra herramienta fácil de usar.",
+            testi: "Lo que dicen nuestras usuarias",
+            t1: "'¡FREEZZ es increíble! Me ayudó a encontrar el trabajo de mis sueños.'",
+            "t1-name": "Bismay Dey",
+            t2: "'La mejor plataforma de búsqueda de empleo que he usado.'",
+            "t2-name": "será blanco",
+            upto: "Últimas actualizaciones",
+            u1: "Nueva característica lanzada",
+            "u1-content":
+              "Hemos agregado un nuevo filtro para ayudarlo a encontrar trabajo más rápido.",
+            u2: "Aviso de mantenimiento",
+            "u2-content":
+              "Mantenimiento programado el 20 de septiembre. Volveremos en breve.",
+            faqs: "Preguntas frecuentes",
+            fq1: "¿Cómo solicito un trabajo o una contratación?",
+            "fq1-content":
+              "Visite la página de listado de trabajos o la página de contratación, haga clic en el trabajo o currículum que le interese y siga las instrucciones de la solicitud.",
+            fq2: "¿Cuál es el costo de usar FREEZZZ?",
+            "fq2-content":
+              "FREEZZZ es de uso completamente gratuito para quienes buscan empleo.",
+            option: "Elija una opción",
+            job: "Buscar empleo",
+            home: "Página de inicio",
           },
-          // Add more languages here
+          fe: {
+            log: "DÉCONNEXION",
+            title: "FREEZZZ",
+            "welcome-message":
+              "Bienvenue sur la plateforme de freelancing la plus cool de tous les temps !",
+            "start-btn": "Commencer",
+            button: "COMMENCER",
+            feautures: "Caractéristiques",
+            f1: "Interface conviviale",
+            "f1-content":
+              "Mise en page facile à naviguer pour les indépendants et les clients.",
+            f2: "Algorithmes de correspondance avancés",
+            "f2-content":
+              "Utilise l'IA pour recommander les pigistes les plus appropriés en fonction des exigences du poste, des compétences, des évaluations et des travaux antérieurs, aidant ainsi les pigistes et les clients à gagner du temps.",
+            f3: "Constructeur de CV",
+            "f3-content":
+              "PAS DE CV❗❓Pas besoin de vous inquiéter, nous avons notre propre générateur de CV qui est convivial et très facile à utiliser.",
+            testi: "Ce que disent nos utilisateurs",
+            t1: "'FREEZZZ est incroyable ! Cela m'a aidé à trouver l'emploi de mes rêves.'",
+            "t1-name": "Bismay Dey",
+            t2: "'La meilleure plateforme de recherche d'emploi que j'ai jamais utilisée.'",
+            "t2-name": "Will Blanc",
+            upto: "Dernières mises à jour",
+            u1: "Nouvelle fonctionnalité publiée",
+            "u1-content":
+              "Nous avons ajouté un nouveau filtre pour vous aider à trouver un emploi plus rapidement.",
+            u2: "Avis d'entretien",
+            "u2-content":
+              "Maintenance programmée le 20 septembre. Nous reviendrons sous peu.",
+            faqs: "Foire aux questions",
+            fq1: "Comment postuler pour un emploi ou une embauche ?",
+            "fq1-content":
+              "Visitez la page d'offre d'emploi ou la page d'embauche, cliquez sur l'emploi ou le curriculum vitae qui vous intéresse et suivez les instructions de candidature.",
+            fq2: "Quel est le coût d’utilisation de FREEZZZ ?",
+            "fq2-content":
+              "FREEZZZ est entièrement gratuit pour les demandeurs d’emploi.",
+            option: "Choisissez une option",
+            job: "Trouver un emploi",
+            home: "Page d'accueil",
+          },
+          be: {
+            log: "লগ আউট",
+            title: "ফ্রিজ",
+            "welcome-message":
+              "সর্বকালের সেরা ফ্রিল্যান্সিং প্ল্যাটফর্মে স্বাগতম!",
+            "start-btn": "শুরু করুন",
+            button: "শুরু করুন",
+            feautures: "বৈশিষ্ট্য",
+            f1: "ব্যবহারকারী-বান্ধব ইন্টারফেস",
+            "f1-content":
+              "ফ্রিল্যান্সার এবং ক্লায়েন্ট উভয়ের জন্যই সহজে নেভিগেট লেআউট।",
+            f2: "উন্নত ম্যাচিং অ্যালগরিদম",
+            "f2-content":
+              "কাজের প্রয়োজনীয়তা, দক্ষতা, রেটিং এবং পূর্বের কাজের উপর ভিত্তি করে সবচেয়ে উপযুক্ত ফ্রিল্যান্সারদের সুপারিশ করতে AI ব্যবহার করে, ফ্রিল্যান্সার এবং ক্লায়েন্ট উভয়কেই সময় বাঁচাতে সাহায্য করে",
+            f3: "বিল্ডার পুনরায় শুরু করুন",
+            "f3-content":
+              "রিজিউম নেই ❗❓ চিন্তা করার দরকার নেই আমাদের নিজস্ব সারসংকলন নির্মাতা রয়েছে যা ব্যবহারকারী বান্ধব এবং ব্যবহার করা খুব সহজ।",
+            testi: "আমাদের ব্যবহারকারীরা কি বলে",
+            t1: "'ফ্রিজজ আশ্চর্যজনক! এটা আমাকে আমার স্বপ্নের চাকরি খুঁজে পেতে সাহায্য করেছে।'",
+            "t1-name": "বিস্ময় দে",
+            t2: "'আমার ব্যবহার করা সেরা চাকরি খোঁজার প্ল্যাটফর্ম।'",
+            "t2-name": "উইল হোয়াইট",
+            upto: "সর্বশেষ আপডেট",
+            u1: "নতুন ফিচার রিলিজ হয়েছে",
+            "u1-content":
+              "আপনাকে দ্রুত চাকরি খুঁজে পেতে সাহায্য করার জন্য আমরা একটি নতুন ফিল্টার যোগ করেছি।",
+            u2: "রক্ষণাবেক্ষণ বিজ্ঞপ্তি",
+            "u2-content":
+              "20শে সেপ্টেম্বর নির্ধারিত রক্ষণাবেক্ষণ। আমরা শীঘ্রই ফিরে আসব.",
+            faqs: "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+            fq1: "আমি কিভাবে একটি চাকরি বা নিয়োগের জন্য আবেদন করব?",
+            "fq1-content":
+              "চাকরির তালিকা পৃষ্ঠা বা নিয়োগের পৃষ্ঠায় যান, আপনি যে চাকরি বা জীবনবৃত্তান্তে আগ্রহী তাতে ক্লিক করুন এবং আবেদনের নির্দেশাবলী অনুসরণ করুন।",
+            fq2: "ফ্রিজ ব্যবহার করার খরচ কত?",
+            "fq2-content":
+              "FREEZZZ চাকরিপ্রার্থীদের জন্য ব্যবহার করার জন্য সম্পূর্ণ বিনামূল্যে।",
+            option: "একটি বিকল্প চয়ন করুন",
+            job: "চাকরি খুঁজুন",
+            home: "হোম পেজ",
+          },
+          ch: {
+            log: "退出",
+            title: "冰冻",
+            "welcome-message": "欢迎来到有史以来最酷的自由职业平台！",
+            "start-btn": "开始使用",
+            button: "开始吧",
+            feautures: "特征",
+            f1: "用户友好的界面",
+            "f1-content": "为自由职业者和客户提供易于导航的布局。",
+            f2: "先进的匹配算法",
+            "f2-content":
+              "使用人工智能根据工作要求、技能、评级和之前的工作推荐最合适的自由职业者，帮助自由职业者和客户节省时间",
+            f3: "简历生成器",
+            "f3-content":
+              "没有简历❗❓无需担心，我们有自己的简历生成器，它用户友好且非常易于使用。",
+            testi: "我们的用户怎么说",
+            t1: "'FREEZZZ 太棒了！它帮助我找到了我梦想的工作。'",
+            "t1-name": "俾斯麦·戴伊",
+            t2: "'我用过的最好的求职平台。'",
+            "t2-name": "威尔·怀特",
+            upto: "最新更新",
+            u1: "新功能发布",
+            "u1-content": "我们添加了一个新的过滤器来帮助您更快地找到工作。",
+            u2: "维护通知",
+            "u2-content": "预定9月20日维护。我们很快就会回来。",
+            faqs: "常见问题解答",
+            fq1: "我如何申请工作或雇用？",
+            "fq1-content":
+              "访问职位列表页面或招聘页面，单击您感兴趣的职位或简历，然后按照申请说明进行操作。",
+            fq2: "使用 FREEZZZ 的费用是多少？",
+            "fq2-content": "FREEZZZ 对求职者完全免费使用。",
+            option: "选择一个选项",
+            job: "寻找工作",
+            home: "主页",
+          },
         };
 
         const elementsToTranslate = document.querySelectorAll("[data-key]");
