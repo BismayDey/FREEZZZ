@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login.css" />
+    <title>Login</title>
+    <!-- Firebase App and Authentication (Modular SDK) -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyA2L1u3EiFiXI2_wYfbqNbnr8AtG_Gtrj0",
+        authDomain: "web1234-d24aa.firebaseapp.com",
+        databaseURL: "https://web1234-d24aa-default-rtdb.firebaseio.com",
+        projectId: "web1234-d24aa",
+        storageBucket: "web1234-d24aa.appspot.com",
+        messagingSenderId: "849017949104",
+        appId: "1:849017949104:web:cd8679b622927553eba475",
+        measurementId: "G-2E6J2V6WQ1",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      // Add functions to handle login and registration
+      window.login = function () {
+        const email = document.querySelector(
+          '#login .input-field[placeholder="Username or Email"]'
+        ).value;
+        const password = document.querySelector(
+          '#login .input-field[placeholder="Password"]'
+        ).value;
+
+        signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed in
+            window.location.href = "welcome.html"; // Redirect on success
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            alert("Error: " + errorMessage);
+          });
+      };
+
+      window.register = function () {
+        const email = document.querySelector(
+          '#register .input-field[placeholder="Email"]'
+        ).value;
+        const password = document.querySelector(
+          '#register .input-field[placeholder="Password"]'
+        ).value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            // Signed up
+            window.location.href = "welcome.html"; // Redirect on success
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            alert("Error: " + errorMessage);
+          });
+      };
+
+      window.toggleMenu = function (type) {
+        if (type == "register") {
+          document.getElementById("login").style.display = "none";
+          document.getElementById("register").style.display = "flex";
+        } else {
+          document.getElementById("login").style.display = "flex";
+          document.getElementById("register").style.display = "none";
+        }
+      };
+
+      window.onload = function () {
+        window.toggleMenu("signin");
+      };
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav-logo">
+          <p>FREEZZZ</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+          <ul>
+            <li><a href="#" class="link active">Home</a></li>
+            <li><a href="#" class="link">Blog</a></li>
+            <li><a href="#" class="link">Services</a></li>
+            <li><a href="#" class="link">About</a></li>
+          </ul>
+        </div>
+        <div class="nav-button">
+          <button
+            class="btn white-btn"
+            id="loginBtn"
+            onclick="toggleMenu('signin')"
+          >
+            Sign In
+          </button>
+          <button class="btn" id="registerBtn" onclick="toggleMenu('register')">
+            Sign Up
+          </button>
+        </div>
+        <div class="nav-menu-btn">
+          <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+        </div>
+      </nav>
+
+      <!----------------------------- Form box ----------------------------------->
+      <div class="form-box">
+        <!------------------- login form --------------------------->
+        <div class="login-container" id="login">
+          <div class="top">
+            <span
+              >Don't have an account?
+              <a href="#" onclick="toggleMenu('register')">Sign Up</a></span
+            >
+            <header>Login</header>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Username or Email"
+            />
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" class="input-field" placeholder="Password" />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <button class="submit" onclick="login()">Sign In</button>
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="login-check" />
+              <label for="login-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Forgot password?</a></label>
+            </div>
+          </div>
+        </div>
+
+        <!------------------- registration form --------------------------->
+        <div class="register-container" id="register">
+          <div class="top">
+            <span
+              >Have an account?
+              <a href="#" onclick="toggleMenu('signin')">Login</a></span
+            >
+            <header>Sign Up</header>
+          </div>
+          <div class="two-forms">
+            <div class="input-box">
+              <input type="text" class="input-field" placeholder="Firstname" />
+              <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+              <input type="text" class="input-field" placeholder="Lastname" />
+              <i class="bx bx-user"></i>
+            </div>
+          </div>
+          <div class="input-box">
+            <input type="text" class="input-field" placeholder="Email" />
+            <i class="bx bx-envelope"></i>
+          </div>
+          <div class="input-box">
+            <input type="password" class="input-field" placeholder="Password" />
+            <i class="bx bx-lock-alt"></i>
+          </div>
+          <div class="input-box">
+            <button class="submit" onclick="register()">Register</button>
+          </div>
+          <div class="two-col">
+            <div class="one">
+              <input type="checkbox" id="register-check" />
+              <label for="register-check"> Remember Me</label>
+            </div>
+            <div class="two">
+              <label><a href="#">Terms & conditions</a></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myMenuFunction() {
+        var i = document.getElementById("navMenu");
+        if (i.className === "nav-menu") {
+          i.className += " responsive";
+        } else {
+          i.className = "nav-menu";
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .notification-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .notification-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .notification-item {
+            background: #333;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            animation: fadeIn 0.5s ease;
+            transition: transform 0.3s ease;
+        }
+        .notification-item:hover {
+            transform: scale(1.02);
+            background: #444;
+        }
+        .notification-item p {
+            margin: 0;
+        }
+        .notification-item .timestamp {
+            font-size: 0.9em;
+            color: #888;
+        }
+        .notification-item .details {
+            display: none;
+            padding-top: 10px;
+            border-top: 1px solid #555;
+            margin-top: 10px;
+        }
+        .notification-item.active .details {
+            display: block;
+        }
+        .notification-item .details p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="notification-header">
+            <h1>Notifications</h1>
+        </div>
+        <ul id="notification-list" class="notification-list">
+            <!-- Notifications will be injected here -->
+        </ul>
+    </div>
+
+    <script>
+        // Function to create a notification
+        function createNotification(id, message, timestamp, details) {
+            const li = document.createElement('li');
+            li.className = 'notification-item';
+            li.innerHTML = `
+                <p>${message}</p>
+                <p class="timestamp">${timestamp}</p>
+                <div class="details">
+                    <p>${details}</p>
+                </div>
+            `;
+            li.addEventListener('click', () => {
+                li.classList.toggle('active');
+            });
+            return li;
+        }
+
+        // Function to add a new notification
+        function addNotification() {
+            const notificationList = document.getElementById('notification-list');
+            const id = Date.now();
+            const message = `Job alert: New opportunity for position ID ${id}`;
+            const timestamp = new Date().toLocaleTimeString();
+            const details = `Details about position ID ${id}. This is a placeholder notification.`;
+
+            const notification = createNotification(id, message, timestamp, details);
+            notificationList.appendChild(notification);
+        }
+
+        // Add a new notification every 1 minute
+        setInterval(addNotification, 60 * 1000);
+
+        // Add an initial notification for testing
+        addNotification();
+    </script>
+</body>
+</html>

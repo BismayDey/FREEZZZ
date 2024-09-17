@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FREEZZZ Job Listings</title>
+  <link rel="stylesheet" href="job 2.css">
+</head>
+<body>
+  <header>
+    <h1 id="site-name">FREEZZZ</h1>
+    <p>Find Your Dream Job</p>
+    <p>Explore top job opportunities and apply now!</p>
+  </header>
+
+  <div class="jobs-list-container">
+    <h2>Job Listings</h2>
+    <input type="text" class="job-search" placeholder="Search jobs...">
+    <div class="jobs"></div>
+    <div class="job-details-container" style="display: none;">
+      <h1 class="job-title"></h1>
+      <img class="job-image" src="" alt="">
+      <div class="job-details"></div>
+      <span class="open-positions"></span>
+      <button class="back-btn">Back to Job Listings</button>
+    </div>
+  </div>
+
+  <script>
+  const jobs = [
+    { id: 1, title: "Web Developer", image: "images/software-engineer.svg", details: "Responsible for designing, developing, and maintaining webpages.", openPositions: "34" },
+    { id: 2, title: "Video Editor", image: "images/data-scientist.svg", details: "For editing raw videos and making them attractive and better.", openPositions: "7" },
+    { id: 3, title: "Software Developer", image: "images/project-manager.svg", details: "Designs, codes, and tests software applications and systems.", openPositions: "16" },
+    { id: 4, title: "Product Manager", image: "images/product-manager.svg", details: "Responsible for managing the entire product life cycle.", openPositions: "9" },
+    { id: 5, title: "Sales Representative", image: "images/sales-representative.svg", details: "Responsible for reaching out to potential customers and closing sales deals.", openPositions: "5" },
+    { id: 6, title: "Marketing Manager", image: "images/marketing-manager.svg", details: "Responsible for creating and executing marketing strategies.", openPositions: "3" },
+    { id: 7, title: "Editor", image: "images/marketing-manager.svg", details: "Editors review story ideas and decide what material will appeal most to readers.", openPositions: "14" },
+    { id: 8, title: "Data Analyst", image: "images/marketing-manager.svg", details: "Gathers, processes, and analyzes data to help organizations make informed decisions.", openPositions: "1" },
+    { id: 9, title: "Network Administrator", image: "images/marketing-manager.svg", details: "Responsible for managing and supporting network infrastructure.", openPositions: "1" },
+    { id: 10, title: "UX/UI Designer", image: "images/ux-ui-designer.svg", details: "Designs user interfaces and experiences to improve user satisfaction.", openPositions: "8" },
+    { id: 11, title: "Content Writer", image: "images/content-writer.svg", details: "Creates engaging content for websites, blogs, and social media.", openPositions: "12" },
+    { id: 12, title: "Customer Support Specialist", image: "images/customer-support.svg", details: "Provides assistance and support to customers to resolve issues and improve satisfaction.", openPositions: "6" },
+    { id: 13, title: "Graphic Designer", image: "images/graphic-designer.svg", details: "Designs visual content for marketing, branding, and communication purposes.", openPositions: "10" },
+    { id: 14, title: "Business Analyst", image: "images/business-analyst.svg", details: "Analyzes business needs and provides insights to improve processes and strategies.", openPositions: "7" },
+    { id: 15, title: "Database Administrator", image: "images/database-administrator.svg", details: "Manages and maintains database systems to ensure their performance and security.", openPositions: "4" },
+    { id: 16, title: "Systems Analyst", image: "images/systems-analyst.svg", details: "Analyzes and designs information systems to meet business needs.", openPositions: "5" },
+    { id: 17, title: "SEO Specialist", image: "images/seo-specialist.svg", details: "Optimizes websites to improve search engine rankings and visibility.", openPositions: "6" },
+    { id: 18, title: "Cloud Engineer", image: "images/cloud-engineer.svg", details: "Designs and manages cloud infrastructure and services.", openPositions: "3" },
+    { id: 19, title: "DevOps Engineer", image: "images/devops-engineer.svg", details: "Streamlines development and operations processes to enhance software delivery.", openPositions: "5" },
+    { id: 20, title: "Product Designer", image: "images/product-designer.svg", details: "Designs products from concept through production, focusing on functionality and aesthetics.", openPositions: "9" }
+  ];
+
+    const jobsContainer = document.querySelector(".jobs-list-container .jobs");
+    const jobSearch = document.querySelector(".jobs-list-container .job-search");
+    const jobDetailsContainer = document.querySelector(".job-details-container");
+    const backBtn = document.querySelector(".back-btn");
+
+    let searchTerm = "";
+
+    const createJobListingCards = () => {
+      jobsContainer.innerHTML = "";
+      jobs.forEach((job) => {
+        if (job.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+          let jobCard = document.createElement("div");
+          jobCard.classList.add("job");
+          jobCard.dataset.id = job.id;
+
+          let image = document.createElement("img");
+          image.src = job.image;
+
+          let title = document.createElement("h3");
+          title.innerHTML = job.title;
+          title.classList.add("job-title");
+
+          let details = document.createElement("div");
+          details.innerHTML = job.details;
+          details.classList.add("details");
+
+          let detailsBtn = document.createElement("a");
+          detailsBtn.href = `job.html?id=${job.id}`;
+          detailsBtn.innerHTML = "More Details";
+          detailsBtn.classList.add("details-btn");
+
+          let openPositions = document.createElement("span");
+          openPositions.classList.add("open-positions");
+          openPositions.innerHTML = job.openPositions === "1" ? `${job.openPositions} open position` : `${job.openPositions} open positions`;
+
+          jobCard.appendChild(image);
+          jobCard.appendChild(title);
+          jobCard.appendChild(details);
+          jobCard.appendChild(detailsBtn);
+          jobCard.appendChild(openPositions);
+
+          jobsContainer.appendChild(jobCard);
+        }
+      });
+    };
+
+    const showJobDetails = (jobId) => {
+      const job = jobs.find(job => job.id == jobId);
+      if (job) {
+        document.querySelector('.job-title').textContent = job.title;
+        document.querySelector('.job-details').textContent = job.details;
+        document.querySelector('.open-positions').textContent = job.openPositions;
+        document.querySelector('.job-image').src = job.image;
+
+        jobsContainer.style.display = 'none';
+        jobDetailsContainer.style.display = 'block';
+      }
+    };
+
+    const handleBackButtonClick = () => {
+      jobsContainer.style.display = 'block';
+      jobDetailsContainer.style.display = 'none';
+    };
+
+    backBtn.addEventListener('click', handleBackButtonClick);
+
+    jobSearch.addEventListener("input", (e) => {
+      searchTerm = e.target.value;
+      createJobListingCards();
+    });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const jobId = urlParams.get('id');
+    if (jobId) {
+      showJobDetails(jobId);
+    } else {
+      createJobListingCards();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FREEZZZ - Resumes View</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: #121212; /* Dark background */
+      color: #e0e0e0; /* Light text color */
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0% 0%;
+      }
+    }
+
+    .header {
+      background: linear-gradient(90deg, orange, white, green);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-size: 4rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 30px;
+      background: linear-gradient(to right, orange, white, green);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: anime 3s linear infinite;
+      animation: anime 3s linear infinite;
+    }
+    @keyframes anime{
+        to{
+            background-position: 200%;
+        }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      color: #e0e0e0;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      border: 1px solid #4caf50;
+      border-radius: 4px;
+      font-size: 1rem;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+    }
+
+    .resume-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+      gap: 20px;
+    }
+
+    .resume-card {
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resume-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .resume-card h2 {
+      font-size: 1.4em;
+      margin: 0;
+      color: #ff5722; /* Gradient color */
+    }
+
+    .resume-card p {
+      margin: 5px 0;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skills-list li {
+      background-color: #4caf50;
+      color: #fff;
+      border-radius: 4px;
+      padding: 5px 10px;
+      margin-bottom: 5px;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    button {
+      background-color: #ff9800;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e67e22;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 1024px) {
+      .resume-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 cards per row on medium screens */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .resume-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row on small screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .resume-container {
+        grid-template-columns: 1fr; /* 1 card per row on extra small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with website name -->
+  <div class="header">FREEZZZ</div>
+
+  <div class="container">
+    <h1>View Resumes</h1>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search resumes...">
+    </div>
+
+    <div class="resume-container" id="resumeContainer">
+      <!-- Resume Cards -->
+      <div class="resume-card">
+        <h2>Bismay Dey</h2>
+        <p><strong>Position:</strong> Frontend Developer</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.Sc. in Computer Science</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>React.js</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+      <div class="resume-card">
+        <h2>Jayatri Chakraborty</h2>
+        <p><strong>Position:</strong> Graphic Designer</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.A. Honors</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Graphic Designing</li>
+          <li>Traditional Arts</li>
+          <li>Modeling</li>
+          <li>Big Data Technologies</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Lucas Wilson</h2>
+        <p><strong>Position:</strong> Project Manager</p>
+        <p><strong>Experience:</strong> 7 years</p>
+        <p><strong>Education:</strong> MBA in Project Management</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Agile</li>
+          <li>Scrum</li>
+          <li>Leadership</li>
+          <li>Risk Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Harish Kumar</h2>
+        <p><strong>Position:</strong> Blockchain Developer</p>
+        <p><strong>Experience:</strong> 3 years</p>
+        <p><strong>Education:</strong> B.Tech in Computer Science</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Ethereum</li>
+          <li>Smart Contracts</li>
+          <li>Cryptocurrency</li>
+          <li>Blockchain Architecture</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Maria Rodriguez</h2>
+        <p><strong>Position:</strong> Public Relations Specialist</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> M.A. in Public Relations</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Media Relations</li>
+          <li>Event Planning</li>
+          <li>Strategic Communication</li>
+          <li>Brand Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Sheetal Agarwal</h2>
+        <p><strong>Position:</strong> E-commerce Specialist</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.Com in E-commerce</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>SEO</li>
+          <li>Online Advertising</li>
+          <li>Customer Relationship Management</li>
+          <li>Data Analysis</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Rajeev Joshi</h2>
+        <p><strong>Position:</strong> Cloud Engineer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Tech in Information Technology</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>AWS</li>
+          <li>Azure</li>
+          <li>Cloud Architecture</li>
+          <li>DevOps</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Emily Johnson</h2>
+        <p><strong>Position:</strong> Data Scientist</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> M.Sc. in Data Science</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Python</li>
+          <li>R</li>
+          <li>Machine Learning</li>
+          <li>Data Analysis</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Omar Ahmed</h2>
+        <p><strong>Position:</strong> Software Engineer</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> B.Sc. in Software Engineering</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Java</li>
+          <li>C++</li>
+          <li>SQL</li>
+          <li>System Design</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Emma Cooper</h2>
+        <p><strong>Position:</strong> Research Analyst</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> M.S. in Statistics</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Data Analysis</li>
+          <li>Statistical Modeling</li>
+          <li>Data Visualization</li>
+          <li>Research Methodology</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Sophia Taylor</h2>
+        <p><strong>Position:</strong> Graphic Designer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.A. in Graphic Design</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Adobe Photoshop</li>
+          <li>Illustrator</li>
+          <li>InDesign</li>
+          <li>UX/UI Design</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Leo Walker</h2>
+        <p><strong>Position:</strong> IT Support Specialist</p>
+        <p><strong>Experience:</strong> 3 years</p>
+        <p><strong>Education:</strong> B.Sc. in Information Technology</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Technical Support</li>
+          <li>Network Troubleshooting</li>
+          <li>Hardware Maintenance</li>
+          <li>Software Installation</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Michael Brown</h2>
+        <p><strong>Position:</strong> Systems Analyst</p>
+        <p><strong>Experience:</strong> 7 years</p>
+        <p><strong>Education:</strong> B.Tech in Information Systems</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Systems Analysis</li>
+          <li>Business Process Improvement</li>
+          <li>Requirements Gathering</li>
+          <li>Project Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Vikram Patel</h2>
+        <p><strong>Position:</strong> Network Engineer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Tech in Network Engineering</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Network Configuration</li>
+          <li>Firewall Management</li>
+          <li>VPN Setup</li>
+          <li>Network Security</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Aiden Smith</h2>
+        <p><strong>Position:</strong> Machine Learning Engineer</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> M.Sc. in Artificial Intelligence</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Deep Learning</li>
+          <li>Natural Language Processing</li>
+          <li>Computer Vision</li>
+          <li>TensorFlow</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Nisha Sharma</h2>
+        <p><strong>Position:</strong> UX/UI Designer</p>
+        <p><strong>Experience:</strong> 3 years</p>
+        <p><strong>Education:</strong> B.Des in UX/UI Design</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Wireframing</li>
+          <li>Prototyping</li>
+          <li>Adobe XD</li>
+          <li>Figma</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Oliver Wilson</h2>
+        <p><strong>Position:</strong> Web Developer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Sc. in Web Development</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>REST APIs</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Leila Ahmed</h2>
+        <p><strong>Position:</strong> Product Manager</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> MBA in Product Management</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Market Research</li>
+          <li>Product Strategy</li>
+          <li>Roadmap Planning</li>
+          <li>Agile Methodologies</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>James Johnson</h2>
+        <p><strong>Position:</strong> Financial Analyst</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.A. in Finance</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Financial Modeling</li>
+          <li>Investment Analysis</li>
+          <li>Risk Management</li>
+          <li>Excel</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Simran Singh</h2>
+        <p><strong>Position:</strong> IT Consultant</p>
+        <p><strong>Experience:</strong> 7 years</p>
+        <p><strong>Education:</strong> B.Tech in Information Technology</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>IT Strategy</li>
+          <li>Project Management</li>
+          <li>Systems Integration</li>
+          <li>Change Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Anna Murphy</h2>
+        <p><strong>Position:</strong> Digital Marketer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Com in Marketing</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>SEO</li>
+          <li>Content Marketing</li>
+          <li>Social Media Marketing</li>
+          <li>Google Analytics</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Ravi Desai</h2>
+        <p><strong>Position:</strong> DevOps Engineer</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.Tech in Computer Engineering</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>CI/CD</li>
+          <li>Docker</li>
+          <li>Kubernetes</li>
+          <li>Automation</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Sarah Lee</h2>
+        <p><strong>Position:</strong> Human Resources Manager</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> M.A. in Human Resources</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Talent Acquisition</li>
+          <li>Employee Relations</li>
+          <li>Performance Management</li>
+          <li>HR Policies</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Rita Verma</h2>
+        <p><strong>Position:</strong> Marketing Analyst</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Sc. in Marketing</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Market Research</li>
+          <li>Data Analysis</li>
+          <li>Campaign Management</li>
+          <li>Consumer Behavior</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>John Smith</h2>
+        <p><strong>Position:</strong> Software Architect</p>
+        <p><strong>Experience:</strong> 8 years</p>
+        <p><strong>Education:</strong> M.Sc. in Software Engineering</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Architectural Design</li>
+          <li>Microservices</li>
+          <li>Cloud Computing</li>
+          <li>System Integration</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Priya Rao</h2>
+        <p><strong>Position:</strong> QA Engineer</p>
+        <p><strong>Experience:</strong> 4 years</p>
+        <p><strong>Education:</strong> B.Tech in Computer Science</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Manual Testing</li>
+          <li>Automation Testing</li>
+          <li>Selenium</li>
+          <li>Bug Tracking</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Jack Adams</h2>
+        <p><strong>Position:</strong> Cybersecurity Analyst</p>
+        <p><strong>Experience:</strong> 5 years</p>
+        <p><strong>Education:</strong> B.Sc. in Cybersecurity</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Threat Analysis</li>
+          <li>Network Security</li>
+          <li>Penetration Testing</li>
+          <li>Incident Response</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Jasmine Patel</h2>
+        <p><strong>Position:</strong> Business Analyst</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> B.Com in Business Analysis</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Business Modeling</li>
+          <li>Data Analysis</li>
+          <li>Requirement Gathering</li>
+          <li>Stakeholder Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Anna Thompson</h2>
+        <p><strong>Position:</strong> Customer Support Specialist</p>
+        <p><strong>Experience:</strong> 3 years</p>
+        <p><strong>Education:</strong> B.A. in Communication</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>Customer Service</li>
+          <li>Problem Solving</li>
+          <li>Communication</li>
+          <li>CRM Software</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+
+      <div class="resume-card">
+        <h2>Karan Mehta</h2>
+        <p><strong>Position:</strong> Full Stack Developer</p>
+        <p><strong>Experience:</strong> 6 years</p>
+        <p><strong>Education:</strong> B.Tech in Computer Science</p>
+        <p><strong>Skills:</strong></p>
+        <ul class="skills-list">
+          <li>JavaScript</li>
+          <li>React.js</li>
+          <li>Node.js</li>
+          <li>Database Management</li>
+        </ul>
+        <button>View Resume</button>
+      </div>
+      <!-- Add other resume cards here -->
+
+    </div>
+  </div>
+
+  <!-- Footer with copyright notice -->
+  <footer>
+    © 2024 FREEZZZ. All rights reserved.
+  </footer>
+
+  <script>
+    // JavaScript for search functionality
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const searchValue = this.value.toLowerCase();
+      const resumeCards = document.querySelectorAll('.resume-card');
+
+      resumeCards.forEach(card => {
+        const textContent = card.textContent.toLowerCase();
+        card.style.display = textContent.includes(searchValue) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

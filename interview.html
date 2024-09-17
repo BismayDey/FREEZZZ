@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Room</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #282c34;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .input-container {
+      margin: 20px 0;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #61dafb;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="loginScreen">
+      <h2>Welcome to the Interview Room</h2>
+      <div class="input-container">
+        <input type="text" id="username" placeholder="Enter your name" />
+      </div>
+      <button onclick="joinRoom()">Join Room</button>
+    </div>
+
+    <div id="roomScreen" class="hidden">
+      <h2>Interview in Progress</h2>
+      <p id="welcomeMessage"></p>
+      <button onclick="leaveRoom()">Leave Room</button>
+    </div>
+  </div>
+
+  <script>
+    const loginScreen = document.getElementById('loginScreen');
+    const roomScreen = document.getElementById('roomScreen');
+    const usernameInput = document.getElementById('username');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+
+    function joinRoom() {
+      const username = usernameInput.value.trim();
+      if (username) {
+        welcomeMessage.textContent = `Welcome, ${username}! You are in the room.`;
+        loginScreen.classList.add('hidden');
+        roomScreen.classList.remove('hidden');
+      } else {
+        alert('Please enter your name');
+      }
+    }
+
+    function leaveRoom() {
+      usernameInput.value = '';
+      loginScreen.classList.remove('hidden');
+      roomScreen.classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
